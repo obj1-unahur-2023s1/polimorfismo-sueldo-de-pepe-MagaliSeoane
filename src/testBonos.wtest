@@ -1,0 +1,31 @@
+import bonos.*
+import pepe.*
+import categorias.*
+
+describe "Test Pepe"{
+	method initialize(){
+		pepe.setCategoria(gerente)
+		pepe.setBonoPresentismo(bonoDependeFaltas)
+		pepe.setBonoResultado(bonoFijo)
+		pepe.setCantFaltas(1)
+	}
+	
+	test "Pepe gerente neto 10000"{
+		assert.equals (10000,pepe.sueldoNeto())
+	}//"asser.equals" es comprobar que 10000 es lo que me devuelve sueldo.Neto()
+	
+	test "Pepe cadete neto 15000"{
+		pepe.setCategoia (cadete)
+		assert.equals(15000,pepe.sueldo.Neto())
+	}
+	
+	test "Pepe una falta"{
+		assert.equals(50,pepe.getBonoPresentismo().monto(pepe))
+	}
+	
+	test "Pepe cadete, bono fijo bono presentimos 3 faltas"{
+		pepe.setCategoria(cadete)
+		pepe.setCantFaltas(3)
+		assert.equals(15080)
+	}
+}
